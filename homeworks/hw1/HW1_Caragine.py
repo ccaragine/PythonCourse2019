@@ -8,6 +8,7 @@ class Portfolio:
         self.cash = cash
         self.mf = mf
         self.s = s
+        self.db = {}
     
     def show(self, cash, mf, s) :
         print(mf)
@@ -23,15 +24,24 @@ class Portfolio:
         self.amount = amount
     
     def __add__(self,cash):
-        self.cash + cash
+        self.cash += cash
         
     def __sub__(self, cash):
-        self.cash - cash
+        self.cash -= cash
         
     def buystock(self, stock):    
-        self.stock + stock 
-        self.cash - stock 
-        
+        self.stock += stock 
+     
+    def sellstock(self, stock):
+        self.stock -= stock 
+   
+    def buymutualfund(self, mutualfund, symbol):
+        self.mf += mutualfund 
+         
+     def add(self, history, transactions): 
+        if mf in self.db:
+            self.db[history].append(transactions)
+        else: self.db[history] = [transactions]   
     
        
         
@@ -42,11 +52,14 @@ port.show(15, 20.0, 4)
 
 port.cash + 300.5         # adding cash 
 
-S = port.stock("HFH", 20)
+S = port.stock("HFH", 20)    # Creating stock
 
 port.buystock(5)    ##### Not working trying to buy stock
 
-MF1 = port.mutualfund("BRT", 0)     ##### Not working 
-MF2 = port.mutualfund("GHT", 0)
+MF1 = port.mutualfund(0,"BRT")     
+MF2 = port.mutualfund(0,"GHT") 
+
+port.buymutualfund(10.3, MF1)  
+port.buymutualfund(2, MF2)   # Buying mutualfund 
 
 
