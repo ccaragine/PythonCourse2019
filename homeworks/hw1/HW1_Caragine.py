@@ -37,6 +37,9 @@ class Portfolio:
    
     def buymutualfund(self, mutualfund, symbol):
         self.mf += mutualfund 
+        
+    def sellmutualfund(self, mutualfund, symbol):
+        self.mf -= mutualfund
          
      def add(self, history, transactions): 
         if mf in self.db:
