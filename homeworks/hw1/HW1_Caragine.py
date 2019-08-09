@@ -1,68 +1,83 @@
-############ HOMEWORK 1 ####################
-## Crystal Caragine
-## 8/7/2019
-## HW1_Caragine
+##################### HOMEWORK 1 ####################
+## Author: Crystal Caragine
+## Date: 8/7/2019
+## Saved as: HW1_Caragine
+
+class Stock:
+    def __init__(self, symbol= "", amount= 0):
+        self.symbol = symbol
+        self.amount = amount 
+      
+class Mutualfund:
+    def __init__(self, symbol = "", amount= 0):
+        self.symbol = symbol
+        self.amount = amount        
+      
+class Cash:
+    def __init__(self, amount = 0):
+        self.amount = amount        
 
 class Portfolio:
     def __init__(self, cash=0, mf=0, s=0):
         self.cash = cash
         self.mf = mf
         self.s = s
-        self.db = {}
+        self.db = []
     
-    def show(self, cash, mf, s) :
-        print(mf)
-        print(s)
-        return port.cash
-
-    def stock(self, symbol, amount):
-        self.symbol = symbol 
-        self.amount = amount
-        
-    def mutualfund(self, symbol, amount):
-        self.symbol = symbol
-        self.amount = amount
-    
-    def __add__(self,cash):
+    def __add__(self, cash):
         self.cash += cash
+        my_print_statement = "My %d changed" % cash 
+        self.db.append(my_print_statement)
+        print(my_print_statement)
+
         
     def __sub__(self, cash):
         self.cash -= cash
+        self.db.append(my_print_statement)
+        print(my_print_statement)
         
-    def buystock(self, stock):    
-        self.stock += stock 
+    def buystock(self, stock):       
+        self.s += stock 
+        my_print_statement = "I bought %d shares of stock" % stock 
+        self.db.append(my_print_statement)
+        print(my_print_statement)
      
-    def sellstock(self, stock):
-        self.stock -= stock 
+    def sellstock(self, stck):
+        self.s -= stck 
    
-    def buymutualfund(self, mutualfund, symbol):
-        self.mf += mutualfund 
+    def buymutualfund(self, mutfun, symbol):
+        self.mf += mutfun 
         
-    def sellmutualfund(self, mutualfund, symbol):
-        self.mf -= mutualfund
-         
-     def add(self, history, transactions): 
-        if mf in self.db:
-            self.db[history].append(transactions)
-        else: self.db[history] = [transactions]   
-    
+    def sellmutualfund(self, mutfun, symbol):
+        self.mf -= mutfun
+ 
+   
        
         
 port = Portfolio()     # creating portfolio
+thestock = Stock()     # creating stock
+themutualfund = Mutualfund()   # creating mutual fund
+thecash = Cash()      # creating cash 
+
 
 port = Portfolio(cash=15, mf=20.0, s=4)  # Setting values for port
-port.show(15, 20.0, 4)
 
-port.cash + 300.5         # adding cash 
+port.cash + 300.5         # Adding cash 
 
-S = port.stock("HFH", 20)    # Creating stock
+stck = Stock(20, "HFH")      # Creating Stock
 
-port.buystock(5)    ##### Not working trying to buy stock
+port.buystock(5)   # Buy stock
 
-MF1 = port.mutualfund(0,"BRT")     
-MF2 = port.mutualfund(0,"GHT") 
+mf1 = Mutualfund("BRT")     # Creating mf1
+mf2 = Mutualfund("GHT")     # Creating mf2
 
-port.buymutualfund(10.3, MF1)  
-port.buymutualfund(2, MF2)   # Buying mutualfund 
+port.buymutualfund(10.3, mf1)  
+port.buymutualfund(2, mf2)   # Buying mutualfund 
 
+print(port)
 
+port.cash - 50
+
+port.sellmutualfund("BRT", 3)  
+
+port.sellstock("HFH", 1) 

@@ -31,13 +31,13 @@ def reversewordletters(txt):
 
 		
 ## change text to piglatin.. google it! 
-def piglatin(txt):
-    if txt[0] in ["A" , "E" , "I" , "O" , "U"]:
-        print("Vowell")
-    elif txt[1] in ["A" , "E" , "I" , "O" , "U"]:
-        print("Vowell")
-    else txt[2] in ["A" , "E" , "I" , "O" , "U"]:
-        return("Vowell")
+#def piglatin(txt):
+  #  if txt[0] in ["A" , "E" , "I" , "O" , "U"]:
+   #     print("Vowell")
+    #elif txt[1] in ["A" , "E" , "I" , "O" , "U"]:
+     #   print("Vowell")
+    #else txt[2] in ["A" , "E" , "I" , "O" , "U"]:
+     #   return("Vowell")
     
 
 
@@ -51,14 +51,14 @@ def piglatin(txt):
 ## Should throw errors if your exceptions are being raised!
 ## Write a try/catch to handle this.
  
-string_list = ["hi", "hello there", 5, "hope this works", 100, "will it?"]
+#string_list = ["hi", "hello there", 5, "hope this works", 100, "will it?"]
 
 
-shout("yell")		
-reverse("opposite")			
-reversewords("Here are some words")			
-reversewordletters("Here are more words")			
-piglatin("Apple")			
+#shout("yell")		
+#reverse("opposite")			
+#reversewords("Here are some words")			
+#reversewordletters("Here are more words")			
+#piglatin("Apple")			
 			
 			
 
