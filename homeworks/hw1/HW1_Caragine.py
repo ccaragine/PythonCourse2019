@@ -2,6 +2,7 @@
 ## Author: Crystal Caragine
 ## Date: 8/7/2019
 ## Saved as: HW1_Caragine
+my_print_statement = []
 
 class Stock:
     def __init__(self, symbol= "", amount= 0):
@@ -33,6 +34,7 @@ class Portfolio:
         
     def __sub__(self, cash):
         self.cash -= cash
+        my_print_statement = "My %d changed" % cash
         self.db.append(my_print_statement)
         print(my_print_statement)
         
@@ -44,13 +46,23 @@ class Portfolio:
      
     def sellstock(self, stck):
         self.s -= stck 
+        my_print_statement = "I bought %d shares of stock" % stck 
+        self.db.append(my_print_statement)
+        print(my_print_statement)
+
    
     def buymutualfund(self, mutfun, symbol):
         self.mf += mutfun 
+        my_print_statement = "I bought %d shares of mutual funds" % mutfun 
+        self.db.append(my_print_statement)
+        print(my_print_statement)
+
         
     def sellmutualfund(self, mutfun, symbol):
         self.mf -= mutfun
- 
+        my_print_statement = "I bought %d shares of mutual funds" % mutfun 
+        self.db.append(my_print_statement)
+        print(my_print_statement)
    
        
         
@@ -78,6 +90,9 @@ print(port)
 
 port.cash - 50
 
-port.sellmutualfund("BRT", 3)  
+port.sellmutualfund( 3, mf1)  
+port.sellstock(1) 
 
-port.sellstock("HFH", 1) 
+print(my_print_statement)
+
+
