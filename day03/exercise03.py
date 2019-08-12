@@ -2,5 +2,8 @@
 ## Raise a TypeError with an informative message if 'word' is passed as an integer
 ## When done, run the test file in the terminal and see your results.
 def count_vowels(word):
+	if letter in word == "e", "i", "o", "u":
+		add 1
+
 
 
