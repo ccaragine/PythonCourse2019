@@ -33,17 +33,14 @@ wustlfollowersall = wustl.followers_ids()
 
 
 ##-------------------------------
-yordan = api.get_user('cyordan')
-yordan.followers_count
-yordan.statuses_count
 
-## getting all followers of Yordan
+## getting all followers of WUSTL
 hisfollowers = []
-for item in tweepy.Cursor(api.followers_ids, 'cyordan').items(10):
+for item in tweepy.Cursor(api.followers_ids, 'WUSTL').items(10):
 	hisfollowers.append(item)
 
 ############## Question 1 ##############
-## getting all statuses of Yordan's followers
+## getting all statuses of WUSTL's followers
 hisfollowersstatus = []
 for i in hisfollowers:
     hisfollowersstatus.append(api.get_user(i).statuses_count)
@@ -52,7 +49,7 @@ hisfollowersstatus.sort(reverse=True)
 api.get_user(hisfollowersstatus[0])
 
 ############## Question 2 #################
-## getting all followers of Yordan's followers
+## getting all followers of WUSTL's followers
 hisfollowerscount = []
 for i in hisfollowers:
     hisfollowerscount.append(api.get_user(i).followers_count)
@@ -60,12 +57,12 @@ for i in hisfollowers:
 hisfollowerscount.sort(reverse=True)
 api.get_user(hisfollowerscount[0])
 
-## If time extract name 
+ 
 
 ############ Question 3 ##################
 ## among those he follows, who has the most followers
 hisfriends = []
-for item in tweepy.Cursor(api.friends_ids, 'cyordan').items(10):
+for item in tweepy.Cursor(api.friends_ids, 'WUSTL').items(10):
 	hisfriends.append(item)
 
 hisfriendsfollowers = []
@@ -97,14 +94,47 @@ pscfollowers = []
 for item in tweepy.Cursor(api.followers_ids, 'WUSTLPoliSci').items(10):
 	pscfollowers.append(item)
 
-## Among the followers of political science, how many followers they have  
-pscfollowerscount = []
+pscfollowers2 = []
 for i in pscfollowers:
-    pscfollowerscount.append(api.get_user(i).followers_count)
+  try:
+      for j in tweepy.Cursor(api.followers_ids, i ).items(10):
+          pscfollowers2.append(j)
+  except: 
+      continue 
+  
+pscfollowers2status = []
+for i in pscfollowers2:
+    pscfollowers2status.append(api.get_user(i).statuses_count)
 
-pscfollowerstwo = []
-for item in tweepy.Cursor(api.followers_ids, pscfollowerscount).items(10):
-	pscfollowers.append(item)
+pscfollowers2.sort(reverse=True)    
+pscfollowers2[0]  
+ 
+################## Question 6 ######################
+## Friends of Wustl's friends, who has the most tweets 
+pscfriends = []
+for item in tweepy.Cursor(api.friends_ids, 'WUSTLPoliSci').items(10):
+	pscfriends.append(item)
+
+pscfriends2 = []
+for i in pscfriends2:
+  try:
+      for j in tweepy.Cursor(api.friends_ids, i ).items(10):
+          pscfriends2.append(j)
+  except: 
+      continue 
+  
+pscfriends2status = []
+for i in pscfriends2:
+    pscfriends2status.append(api.get_user(i).statuses_count)
+
+pscfriends2status.sort(reverse=True)    
+pscfriends2status[0]  
+
+
+    
+
+
+
 
 
 
