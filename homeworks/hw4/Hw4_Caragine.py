@@ -40,7 +40,7 @@ def strand_sort(numbers):
         out = merge_list(newlist, strand(numbers))
 	return out
 
-# code from rosettacode.org
+# code based off rosettacode.org
     
 
 ######### Quick sort (n^2)
@@ -73,9 +73,27 @@ def quick_sort(numbers, begin = 0, end= None):
         end=len(numbers)-1
     return quick_sort_recursion(numbers, begin, end)
 
-# code from medium-programing
+# code based offf medium-programing
 
 quick_sort(my_numbers)
 
 
+#pip install matplotlib
+import matplotlib.pyplot as plt
 
+x = range(1, 10) ## # of elements in list
+y = range(1, 10) ## time
+plt.subplots_adjust(left = .13, right = .95, top = .9, bottom = .3)
+plt.plot(x, y)
+plt.legend(['Quicksort', 'Strand Sort'], loc = "upper left", prop = {"size":10})
+plt.ylabel("Time")
+plt.xlabel("Elements")
+plt.title("The Effect of Different Sort Algorithms on Runtime")
+txt = """
+"""
+plt.figtext(.5, .05, txt, fontsize = 10, ha = "center")
+plt.savefig('plot.pdf')
+def quick_sort(my_numbers):
+    return quick_sort_recursion(numbers, begin, end)
+def strand_sort(numbers):
+    return out
