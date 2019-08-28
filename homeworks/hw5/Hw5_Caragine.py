@@ -11,7 +11,10 @@ Class Node:
     def __str__(self):
         return str(self.value)
 
-Class newlist:    
+Class newlist: 
+    
+    def length(self):
+        return self.size 
 
     def addNode(self, newvalue):
         new_node = Node(new_value, self.root)
@@ -31,4 +34,5 @@ Class newlist:
           
       def  removeNodesByValue(self, value): 
           self.value = Node -= value 
-        
+      
+
